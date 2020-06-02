@@ -107,11 +107,11 @@ const modals = () => {
 
     function openByScroll(selector) {
         window.addEventListener('scroll', () => {
-            console.log({
+          /*   console.log({
                 1: !btnPressed,
                 2: window.pageYOffset + document.documentElement.clientHeight,
                 3:  document.documentElement.scrollHeight
-            })
+            }) */
             if (!btnPressed && (window.pageYOffset + document.documentElement.clientHeight + 1) >= document.documentElement.scrollHeight) {
                 document.querySelector(selector).click();
             }

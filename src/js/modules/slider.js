@@ -61,6 +61,8 @@ const slider = (slides,dir,prev,next) => {
         }
     }
 
+    autoChangeSlide();
+
     items[0].parentNode.addEventListener('mouseenter', () => {
         clearInterval(paused)
     })
