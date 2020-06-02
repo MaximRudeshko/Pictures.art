@@ -1,4 +1,6 @@
 import {postData} from '../services/requests';
+import changeFormState from './changeFormState'
+
 
 const forms = (state) => {
     const form = document.querySelectorAll('form'),
@@ -59,12 +61,16 @@ const forms = (state) => {
             statusMessage.appendChild(textMessage)
 
             const formData = new FormData(item);
+            if(item.classList.contains('form_calc')){
+                state['sum'] = document.querySelector('.calc-price').textContent;
+                for(let key in state){
+                    formData.append(key, state[key])
+                }
+            }
             let api;
-            item.closest('.popup-design')|| item.classList.contains('form_calc') ? api = path.designer : api = path.question;
-            console.log(api);
-
+            item.closest('.popup-design') || item.classList.contains('form_calc') ? api = path.designer : api = path.question;
             postData(api, formData)
-                .then((res)=>{
+                .then( res =>{
                     console.log(res)
                     textMessage.textContent = message.success;
                     img.setAttribute('src', message.ok)
@@ -84,6 +90,8 @@ const forms = (state) => {
                 })
         })
     })
+
+
 }
 
 
