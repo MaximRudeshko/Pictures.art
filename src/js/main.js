@@ -3,6 +3,7 @@ import slider from './modules/slider';
 import forms from './modules/forms'
 import mask from './modules/mask';
 import checkTextInputs from './modules/checkTextInputs';
+import showMoreCards from './modules/showMoreCards';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
     mask('[name="phone"]');
     checkTextInputs('[name = name]');
     checkTextInputs('[name = message]');
+    showMoreCards('.button-styles', '#styles .row')
 })
 
 
