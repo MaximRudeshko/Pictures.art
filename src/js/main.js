@@ -8,6 +8,7 @@ import calc from './modules/calc';
 import changeFormState from './modules/changeFormState'
 import filter from './modules/filter';
 import togglePicture from './modules/togglePicture';
+import accordeon from './modules/accordeon';
 
 
 
@@ -28,6 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
     changeFormState(formState);
     filter();
     togglePicture('.sizes-block')
+    accordeon('.accordion-heading', '.accordion-block')
 })
 
 
