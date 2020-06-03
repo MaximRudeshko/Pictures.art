@@ -6,6 +6,7 @@ import checkTextInputs from './modules/checkTextInputs';
 import showMoreCards from './modules/showMoreCards';
 import calc from './modules/calc';
 import changeFormState from './modules/changeFormState'
+import filter from './modules/filter';
 
 
 
@@ -23,7 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
     checkTextInputs('[name = message]');
     showMoreCards('.button-styles', '#styles .row');
     calc('#size','#material','#options','.promocode','.calc-price');
-    changeFormState(formState)
+    changeFormState(formState);
+    filter();
 })
 
 
