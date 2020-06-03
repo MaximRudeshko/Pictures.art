@@ -7,6 +7,7 @@ import showMoreCards from './modules/showMoreCards';
 import calc from './modules/calc';
 import changeFormState from './modules/changeFormState'
 import filter from './modules/filter';
+import togglePicture from './modules/togglePicture';
 
 
 
@@ -26,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     calc('#size','#material','#options','.promocode','.calc-price');
     changeFormState(formState);
     filter();
+    togglePicture('.sizes-block')
 })
 
 
