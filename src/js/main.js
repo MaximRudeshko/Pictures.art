@@ -9,6 +9,8 @@ import changeFormState from './modules/changeFormState'
 import filter from './modules/filter';
 import togglePicture from './modules/togglePicture';
 import accordeon from './modules/accordeon';
+import burger from './modules/burger';
+import scrolling from './modules/scrolling';
 
 
 
@@ -29,7 +31,9 @@ window.addEventListener('DOMContentLoaded', () => {
     changeFormState(formState);
     filter();
     togglePicture('.sizes-block')
-    accordeon('.accordion-heading', '.accordion-block')
+    accordeon('.accordion-heading', '.accordion-block');
+    burger('.burger', '.burger-menu');
+    scrolling('.pageup');
 })
 
 

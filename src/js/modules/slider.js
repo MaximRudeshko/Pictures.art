@@ -57,7 +57,7 @@ const slider = (slides,dir,prev,next) => {
                 changeSlide(1);
                 items[sliderIndex - 1].classList.remove('slideInRight');
                 items[sliderIndex - 1].classList.add('slideInLeft');
-            },3000)
+            },5000)
         }
     }
 

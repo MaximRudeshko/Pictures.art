@@ -4412,6 +4412,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/filter */ "./src/js/modules/filter.js");
 /* harmony import */ var _modules_togglePicture__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/togglePicture */ "./src/js/modules/togglePicture.js");
 /* harmony import */ var _modules_accordeon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/accordeon */ "./src/js/modules/accordeon.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
+
+
 
 
 
@@ -4440,6 +4444,8 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_filter__WEBPACK_IMPORTED_MODULE_8__["default"])();
   Object(_modules_togglePicture__WEBPACK_IMPORTED_MODULE_9__["default"])('.sizes-block');
   Object(_modules_accordeon__WEBPACK_IMPORTED_MODULE_10__["default"])('.accordion-heading', '.accordion-block');
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_11__["default"])('.burger', '.burger-menu');
+  Object(_modules_scrolling__WEBPACK_IMPORTED_MODULE_12__["default"])('.pageup');
 });
 
 /***/ }),
@@ -4474,6 +4480,37 @@ var accordeon = function accordeon(triggerSelector) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (accordeon);
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var burger = function burger(burgerSelector, menuSelector) {
+  var burger = document.querySelector(burgerSelector),
+      menu = document.querySelector(menuSelector);
+  menu.style.display = 'none';
+  burger.addEventListener('click', function () {
+    if (menu.style.display == 'none' && window.screen.availWidth < 993) {
+      menu.style.display = 'block';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (window.screen.availWidth > 992) {
+      menu.style.display = 'none';
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (burger);
 
 /***/ }),
 
@@ -4978,6 +5015,81 @@ var modals = function modals() {
 
 /***/ }),
 
+/***/ "./src/js/modules/scrolling.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/scrolling.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var scrolling = function scrolling() {
+  var upElem = document.querySelector('.pageup');
+  window.addEventListener('scroll', function () {
+    if (document.documentElement.scrollTop > 1650) {
+      upElem.classList.add('animated', 'fadeIn');
+      upElem.classList.remove('fadeOut');
+    } else {
+      upElem.classList.add('fadeOut');
+      upElem.classList.remove('fadeIn');
+    }
+  });
+
+  var calcScroll = function calcScroll() {
+    var scrollTop = Math.round(document.documentElement.scrollTop || document.body.scrollTop);
+    upElem.addEventListener('click', function (e) {
+      if (this.hash !== '') {
+        e.preventDefault();
+        var hashEl = document.querySelector(this.hash),
+            hashElTop = 0;
+
+        while (hashEl.offsetParent) {
+          hashElTop += hashEl.offsetTop;
+          hashEl = hashEl.offsetParent;
+        }
+
+        smoothScroll(scrollTop, hashElTop, this.hash);
+      }
+    });
+  };
+
+  var smoothScroll = function smoothScroll(from, to, hash) {
+    var timeInterval = 1,
+        prevScrollTop,
+        speed;
+
+    if (to > from) {
+      speed = 30;
+    } else {
+      speed = -30;
+    }
+
+    var move = setInterval(function () {
+      var scrollTop = Math.round(document.body.scrollTop || document.documentElement.scrollTop);
+
+      if (prevScrollTop === scrollTop || to > from && scrollTop >= to || to < from && scrollTop <= to) {
+        clearInterval(move);
+        history.replaceState(history.state, document.title, location.href.replace(/#.*$/g, '') + hash);
+      } else {
+        document.body.scrollTop += speed;
+        document.documentElement.scrollTop += speed;
+        prevScrollTop = scrollTop;
+      }
+    }, timeInterval);
+  };
+
+  calcScroll();
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (scrolling);
+
+/***/ }),
+
 /***/ "./src/js/modules/showMoreCards.js":
 /*!*****************************************!*\
   !*** ./src/js/modules/showMoreCards.js ***!
@@ -5090,7 +5202,7 @@ var slider = function slider(slides, dir, prev, next) {
         changeSlide(1);
         items[sliderIndex - 1].classList.remove('slideInRight');
         items[sliderIndex - 1].classList.add('slideInLeft');
-      }, 3000);
+      }, 5000);
     }
   }
 
