@@ -11,6 +11,7 @@ import togglePicture from './modules/togglePicture';
 import accordeon from './modules/accordeon';
 import burger from './modules/burger';
 import scrolling from './modules/scrolling';
+import drop from './modules/drop';
 
 
 
@@ -34,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
     accordeon('.accordion-heading', '.accordion-block');
     burger('.burger', '.burger-menu');
     scrolling('.pageup');
+    drop();
 })
 
 
