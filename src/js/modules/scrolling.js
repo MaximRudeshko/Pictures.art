@@ -1,6 +1,6 @@
-const scrolling = () => {
+const scrolling = (upSelector) => {
 
-    const upElem = document.querySelector('.pageup')
+    const upElem = document.querySelector(upSelector)
 
     window.addEventListener('scroll', () => {
         if(document.documentElement.scrollTop > 1650){
@@ -12,7 +12,51 @@ const scrolling = () => {
         }
     });
 
-    const calcScroll = () => {
+
+    const links = document.querySelectorAll('[href^="#"]'),
+          speed = 0.5;
+
+    links.forEach(item => {
+        item.addEventListener('click', function(e){
+            e.preventDefault();
+
+            let scrollTop = document.documentElement.scrollTop,
+                  hash = this.hash,
+                  toBlock = document.querySelector(hash).getBoundingClientRect().top,
+                  start = null;
+
+            requestAnimationFrame(step);
+
+            function step(time){
+                if(start === null){
+                    start = time
+                }
+
+                let progress = time - start,
+                    r =  toBlock < 0 ? Math.max(scrollTop - progress / speed, toBlock + scrollTop): Math.min(scrollTop + progress / speed, toBlock + scrollTop);
+
+                document.documentElement.scrollTo(0, r);
+
+                if(r !== toBlock + scrollTop){
+                    requestAnimationFrame(step)
+                }else{
+                    location.href = hash;
+                }
+
+            }
+
+        })
+    })
+
+
+
+
+
+
+
+
+
+    /* const calcScroll = () => {
 
         let scrollTop = Math.round(document.documentElement.scrollTop || document.body.scrollTop);
 
@@ -58,7 +102,7 @@ const scrolling = () => {
         }, timeInterval);
     }
 
-    calcScroll();
+    calcScroll(); */
 }
 
 
