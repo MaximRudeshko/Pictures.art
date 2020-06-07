@@ -3,7 +3,6 @@ const slider = (slides,dir,prev,next) => {
     let sliderIndex = 1,
         paused;
 
-
     function showSlide(n){
         if(n > items.length){
             sliderIndex = 1
@@ -16,11 +15,9 @@ const slider = (slides,dir,prev,next) => {
         items.forEach(item => {
             item.classList.add("animated");
             item.style.display = 'none'
-        })
-
+        });
 
         items[sliderIndex - 1].style.display = 'block';
-        
     }
 
     showSlide(sliderIndex)
@@ -69,10 +66,7 @@ const slider = (slides,dir,prev,next) => {
 
     items[0].parentNode.addEventListener('mouseleave', () => {
         autoChangeSlide()
-    })
-
-
-          
+    })     
 }
 
 export default slider;

@@ -12,7 +12,6 @@ const scrolling = (upSelector) => {
         }
     });
 
-
     const links = document.querySelectorAll('[href^="#"]'),
           speed = 0.5;
 
@@ -42,9 +41,7 @@ const scrolling = (upSelector) => {
                 }else{
                     location.href = hash;
                 }
-
             }
-
         })
     })
 

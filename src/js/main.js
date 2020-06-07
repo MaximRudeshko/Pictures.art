@@ -5,7 +5,7 @@ import mask from './modules/mask';
 import checkTextInputs from './modules/checkTextInputs';
 import showMoreCards from './modules/showMoreCards';
 import calc from './modules/calc';
-import changeFormState from './modules/changeFormState'
+import changeFormDataState from './modules/changeFormState'
 import filter from './modules/filter';
 import togglePicture from './modules/togglePicture';
 import accordeon from './modules/accordeon';
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
     checkTextInputs('[name = message]');
     showMoreCards('.button-styles', '#styles .row');
     calc('#size','#material','#options','.promocode','.calc-price');
-    changeFormState(formState);
+    changeFormDataState(formState);
     filter();
     togglePicture('.sizes-block')
     accordeon('.accordion-heading', '.accordion-block');

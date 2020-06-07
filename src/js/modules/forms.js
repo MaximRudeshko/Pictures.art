@@ -1,6 +1,4 @@
 import {postData} from '../services/requests';
-import changeFormState from './changeFormState'
-
 
 const forms = (state) => {
     const form = document.querySelectorAll('form'),
@@ -24,7 +22,6 @@ const forms = (state) => {
         })
     }
     
-
     const message = {
         success: 'Спасибо, мы скоро с вами свяжемся!',
         loading: 'Загрузка...',
@@ -64,7 +61,8 @@ const forms = (state) => {
             if(item.classList.contains('form_calc')){
                 state['sum'] = document.querySelector('.calc-price').textContent;
                 for(let key in state){
-                    formData.append(key, state[key])
+                    formData.append(key, state[key]);
+                    console.log(formData)
                 }
             }
             let api;
@@ -90,9 +88,6 @@ const forms = (state) => {
                 })
         })
     })
-
-
 }
-
 
 export default forms

@@ -11,7 +11,6 @@ const showMoreCards = (triggerSelector, parentCards) => {
         this.remove()
     });
 
-
     function createCards(responce){
         responce.forEach((item) => {
             const card = document.createElement('div');

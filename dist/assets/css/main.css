@@ -234,6 +234,7 @@ h4 {
 }
 .main .file_upload > div {
   padding-left: 1em;
+
   /* example */
 
 }
@@ -356,7 +357,7 @@ h4 {
 }
 
 .main-slider{
-  z-index: 1;
+  z-index: -1;
 }
 .main .button-order {
   padding: 1.5rem 4rem;

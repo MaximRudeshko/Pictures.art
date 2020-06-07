@@ -4569,7 +4569,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var changeFormState = function changeFormState(state) {
+var changeFormDataState = function changeFormDataState(state) {
   var options = document.querySelectorAll('.form_calc select');
   options.forEach(function (item) {
     item.addEventListener('change', function () {
@@ -4579,7 +4579,7 @@ var changeFormState = function changeFormState(state) {
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (changeFormState);
+/* harmony default export */ __webpack_exports__["default"] = (changeFormDataState);
 
 /***/ }),
 
@@ -4647,17 +4647,20 @@ var drop = function drop() {
   }
 
   function highlight(item) {
-    item.closest('.file_upload').style.border = "5px solid yellow";
-    item.closest('.file_upload').style.backgroundColor = "rgba(0,0,0, .7)";
+    if (item.closest('.form_calc')) {
+      item.closest('.file_upload').style.backgroundColor = "#f7e7e6";
+    } else {
+      item.closest('.file_upload').style.backgroundColor = "#fff";
+    }
   }
 
   function unhighlight(item) {
-    item.closest('.file_upload').style.border = "none";
+    console.log(item.closest('.form_calc'));
 
-    if (item.closest('.calc_form')) {
+    if (item.closest('.form_calc')) {
       item.closest('.file_upload').style.backgroundColor = "#fff";
     } else {
-      item.closest('.file_upload').style.backgroundColor = "#ededed";
+      item.closest('.file_upload').style.backgroundColor = "#f7e7e6";
     }
   }
 
@@ -4875,6 +4878,7 @@ var forms = function forms(state) {
 
         for (var key in state) {
           formData.append(key, state[key]);
+          console.log(formData);
         }
       }
 

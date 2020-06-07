@@ -1,5 +1,4 @@
-
-const changeFormState = (state) => {
+const changeFormDataState = (state) => {
 
     const options = document.querySelectorAll('.form_calc select');
     options.forEach(item => {
@@ -11,4 +10,4 @@ const changeFormState = (state) => {
 
 }
 
-export default changeFormState;
+export default changeFormDataState;

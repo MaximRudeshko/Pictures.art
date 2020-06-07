@@ -1,4 +1,3 @@
-
 const drop = () => {
     
     const fileInputs = document.querySelectorAll('[name="upload"]');
@@ -15,16 +14,20 @@ const drop = () => {
     }
 
     function highlight(item) {
-        item.closest('.file_upload').style.border = "5px solid yellow";
-        item.closest('.file_upload').style.backgroundColor = "rgba(0,0,0, .7)";
+        if(item.closest('.form_calc')){
+            item.closest('.file_upload').style.backgroundColor = "#f7e7e6";
+
+        }else{
+            item.closest('.file_upload').style.backgroundColor = "#fff";        
+        }
     }
 
     function unhighlight(item) {
-        item.closest('.file_upload').style.border = "none";
-        if (item.closest('.calc_form')) {
+        console.log(item.closest('.form_calc'))
+        if (item.closest('.form_calc')){
             item.closest('.file_upload').style.backgroundColor = "#fff";
         } else {
-            item.closest('.file_upload').style.backgroundColor = "#ededed";
+            item.closest('.file_upload').style.backgroundColor = "#f7e7e6";
         }
     }
 

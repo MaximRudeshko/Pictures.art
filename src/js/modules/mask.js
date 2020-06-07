@@ -16,7 +16,6 @@ const mask = (selector) => {
             }     
         }
 
-
         let matrix = '+7 (___) ___ __ __',
               i = 0,
               def = matrix.replace(/\D/g, ''),
@@ -39,9 +38,7 @@ const mask = (selector) => {
         }
     }
 
-
     let inputs = document.querySelectorAll(selector);
-
 
         inputs.forEach(item => {
             item.addEventListener('input', createMask);

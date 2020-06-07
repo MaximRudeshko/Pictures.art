@@ -82,9 +82,7 @@ const modals = () => {
                 document.querySelector(selector).style.display = 'block';
                 document.body.style.overflow = "hidden";
                 document.body.style.marginRight = `${scroll}px`
-            }
-
-            
+            }  
         }, time);
     }
 
@@ -107,11 +105,6 @@ const modals = () => {
 
     function openByScroll(selector) {
         window.addEventListener('scroll', () => {
-          /*   console.log({
-                1: !btnPressed,
-                2: window.pageYOffset + document.documentElement.clientHeight,
-                3:  document.documentElement.scrollHeight
-            }) */
             if (!btnPressed && (window.pageYOffset + document.documentElement.clientHeight + 1) >= document.documentElement.scrollHeight) {
                 document.querySelector(selector).click();
             }
@@ -123,7 +116,7 @@ const modals = () => {
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
     bindModal('.fixed-gift','.popup-gift','.popup-gift .popup-close', true);
     openByScroll('.fixed-gift')
-    //showModalByTime('.popup-consultation', 4000);
+    showModalByTime('.popup-consultation', 4000);
 };
 
 export default modals;

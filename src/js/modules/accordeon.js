@@ -15,6 +15,4 @@ const accordeon = (triggerSelector) => {
     })
 }
 
-
-
 export default accordeon;
