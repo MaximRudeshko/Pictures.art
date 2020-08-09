@@ -1507,6 +1507,9 @@ h4 {
   .promo-2 img {
     left: -10%;
   }
+  .feedback{
+    display: none;
+  }
   .feedback-heading {
     font-size: 2rem;
   }
@@ -1611,6 +1614,15 @@ h4 {
   }
   .footer p {
     text-align: center;
+  }
+
+  .main-slider-item{
+    text-align: center;
+  }
+
+  .main-slider-item img{
+    width: 400px;
+    height: 500px;
   }
 }
 @media (max-width: 577px) {
@@ -1769,5 +1781,11 @@ h4 {
   .popup-content {
     padding: 3rem 3rem;
     width: 25rem;
+  }
+
+  
+  .main-slider-item img{
+    width: 300px;
+    height: 400px;
   }
 }

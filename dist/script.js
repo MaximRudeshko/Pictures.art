@@ -4811,8 +4811,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _services_requests__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/requests */ "./src/js/services/requests.js");
-/* harmony import */ var _changeFormState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./changeFormState */ "./src/js/modules/changeFormState.js");
-
 
 
 
@@ -5078,11 +5076,6 @@ var modals = function modals() {
 
   function openByScroll(selector) {
     window.addEventListener('scroll', function () {
-      /*   console.log({
-            1: !btnPressed,
-            2: window.pageYOffset + document.documentElement.clientHeight,
-            3:  document.documentElement.scrollHeight
-        }) */
       if (!btnPressed && window.pageYOffset + document.documentElement.clientHeight + 1 >= document.documentElement.scrollHeight) {
         document.querySelector(selector).click();
       }
@@ -5092,7 +5085,8 @@ var modals = function modals() {
   bindModal('.button-design', '.popup-design', ' .popup-design .popup-close');
   bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
   bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
-  openByScroll('.fixed-gift'); //showModalByTime('.popup-consultation', 4000);
+  openByScroll('.fixed-gift');
+  showModalByTime('.popup-consultation', 60000);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
